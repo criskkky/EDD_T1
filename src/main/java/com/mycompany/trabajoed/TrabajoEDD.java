@@ -4,7 +4,7 @@ package com.mycompany.trabajoed;
 import java.util.Scanner;
 
 class Herramienta {
-    // Atributos
+    // Atributos - Características de una herramienta
     private String nombre;
     private double precio;
     private String tipo; // "eléctrica" o "manual"
@@ -14,7 +14,7 @@ class Herramienta {
     private String usoRecomendado;
     private String dimensiones;
 
-    // Constructor
+    // Constructor - Inicializar los atributos
     public Herramienta(String nombre, double precio, String tipo, String material, String marca,
                        String especificacionesTecnicas, String usoRecomendado, String dimensiones) {
         this.nombre = nombre;
@@ -27,7 +27,7 @@ class Herramienta {
         this.dimensiones = dimensiones;
     }
 
-    // Getters
+    // Getters - Obtener valores de los atributos
     public String getNombre() { return nombre; }
     public double getPrecio() { return precio; }
     public String getTipo() { return tipo; }
@@ -37,7 +37,7 @@ class Herramienta {
     public String getUsoRecomendado() { return usoRecomendado; }
     public String getDimensiones() { return dimensiones; }
 
-    // Setters
+    // Setters - Establecer valores de los atributos
     public void setNombre(String nombre) { this.nombre = nombre; }
     public void setPrecio(double precio) { this.precio = precio; }
     public void setTipo(String tipo) { this.tipo = tipo; }
@@ -47,7 +47,7 @@ class Herramienta {
     public void setUsoRecomendado(String usoRecomendado) { this.usoRecomendado = usoRecomendado; }
     public void setDimensiones(String dimensiones) { this.dimensiones = dimensiones; }
 
-    @Override
+    @Override // Método para mostrar los datos de una herramienta, Override indica que se está sobreescribiendo un método de la clase Object
     public String toString() {
         return "Nombre: " + nombre + ", Precio: $" + precio + ", Tipo: " + tipo + ", Material: " + material +
                ", Marca: " + marca + ", Especificaciones: " + especificacionesTecnicas +
@@ -55,6 +55,7 @@ class Herramienta {
     }
 }
 
+// Clase Nodo para almacenar las herramientas en una lista enlazada
 class Nodo {
     private Herramienta herramienta;
     private Nodo siguiente;
@@ -77,6 +78,7 @@ class Nodo {
     }
 }
 
+// Clase principal
 public class TrabajoEDD {
     private static Nodo cabeza = null;
     private static Scanner scanner = new Scanner(System.in);
@@ -188,14 +190,14 @@ public class TrabajoEDD {
         Herramienta herramienta = new Herramienta(nombre, precio, tipo, material, marca, especificaciones, usoRecomendado, dimensiones);
         Nodo nuevoNodo = new Nodo(herramienta);
 
-        if (cabeza == null) {
-            cabeza = nuevoNodo;
+        if (cabeza == null) { // Si la lista está vacía
+            cabeza = nuevoNodo; // El nuevo nodo se convierte en la cabeza
         } else {
-            Nodo temp = cabeza;
-            while (temp.getSiguiente() != null) {
-                temp = temp.getSiguiente();
+            Nodo temp = cabeza; // Recorrer la lista hasta el último nodo
+            while (temp.getSiguiente() != null) { // Mientras no sea el último nodo
+                temp = temp.getSiguiente(); // Avanzar al siguiente nodo
             }
-            temp.setSiguiente(nuevoNodo);
+            temp.setSiguiente(nuevoNodo); // Agregar el nuevo nodo al final de la lista
         }
 
         System.out.println("Producto agregado con éxito.");
