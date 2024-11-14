@@ -82,6 +82,10 @@ public class TrabajoEDD {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        // Método para precargar productos, comentar si no se desea precargar.
+        precargarProductos();
+
         boolean salir = false;
         while (!salir) {
             mostrarMenu();
@@ -141,6 +145,25 @@ public class TrabajoEDD {
         System.out.println("10. Salir");
         System.out.print("Seleccione una opción: ");
     }
+
+    private static void precargarProductos() {
+        // Crear algunas herramientas
+        Herramienta h1 = new Herramienta("Taladro", 120.50, "eléctrica", "metal", "Bosch", "600W, velocidad variable", "Construcción", "30x20x10 cm");
+        Herramienta h2 = new Herramienta("Martillo", 25.00, "manual", "acero", "Stanley", "Cabeza de acero forjado", "Carpintería", "15x5x3 cm");
+        Herramienta h3 = new Herramienta("Sierra", 75.99, "eléctrica", "plástico", "Makita", "700W, hoja de 20 cm", "Jardinería", "50x30x20 cm");
+    
+        // Crear nodos y agregar a la lista
+        Nodo nodo1 = new Nodo(h1);
+        Nodo nodo2 = new Nodo(h2);
+        Nodo nodo3 = new Nodo(h3);
+    
+        // Establecer la cabeza de la lista
+        cabeza = nodo1;
+        nodo1.setSiguiente(nodo2);
+        nodo2.setSiguiente(nodo3);
+    
+        System.out.println("Datos pre-cargados en la lista.");
+    }    
 
     private static void agregarProducto() {
         System.out.println("\n--- Agregar Producto ---");
