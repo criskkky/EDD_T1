@@ -16,7 +16,7 @@ class Herramienta {
 
     // Constructor - Inicializar los atributos
     public Herramienta(String nombre, double precio, String tipo, String material, String marca,
-                       String especificacionesTecnicas, String usoRecomendado, String dimensiones) {
+            String especificacionesTecnicas, String usoRecomendado, String dimensiones) {
         this.nombre = nombre;
         this.precio = precio;
         this.tipo = tipo;
@@ -28,30 +28,77 @@ class Herramienta {
     }
 
     // Getters - Obtener valores de los atributos
-    public String getNombre() { return nombre; }
-    public double getPrecio() { return precio; }
-    public String getTipo() { return tipo; }
-    public String getMaterial() { return material; }
-    public String getMarca() { return marca; }
-    public String getEspecificacionesTecnicas() { return especificacionesTecnicas; }
-    public String getUsoRecomendado() { return usoRecomendado; }
-    public String getDimensiones() { return dimensiones; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getEspecificacionesTecnicas() {
+        return especificacionesTecnicas;
+    }
+
+    public String getUsoRecomendado() {
+        return usoRecomendado;
+    }
+
+    public String getDimensiones() {
+        return dimensiones;
+    }
 
     // Setters - Establecer valores de los atributos
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public void setPrecio(double precio) { this.precio = precio; }
-    public void setTipo(String tipo) { this.tipo = tipo; }
-    public void setMaterial(String material) { this.material = material; }
-    public void setMarca(String marca) { this.marca = marca; }
-    public void setEspecificacionesTecnicas(String especificacionesTecnicas) { this.especificacionesTecnicas = especificacionesTecnicas; }
-    public void setUsoRecomendado(String usoRecomendado) { this.usoRecomendado = usoRecomendado; }
-    public void setDimensiones(String dimensiones) { this.dimensiones = dimensiones; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    @Override // Método para mostrar los datos de una herramienta, Override indica que se está sobreescribiendo un método de la clase Object
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setEspecificacionesTecnicas(String especificacionesTecnicas) {
+        this.especificacionesTecnicas = especificacionesTecnicas;
+    }
+
+    public void setUsoRecomendado(String usoRecomendado) {
+        this.usoRecomendado = usoRecomendado;
+    }
+
+    public void setDimensiones(String dimensiones) {
+        this.dimensiones = dimensiones;
+    }
+
+    @Override // Método para mostrar los datos de una herramienta, Override indica que se está
+              // sobreescribiendo un método de la clase Object
     public String toString() {
         return "Nombre: " + nombre + ", Precio: $" + precio + ", Tipo: " + tipo + ", Material: " + material +
-               ", Marca: " + marca + ", Especificaciones: " + especificacionesTecnicas +
-               ", Uso recomendado: " + usoRecomendado + ", Dimensiones: " + dimensiones;
+                ", Marca: " + marca + ", Especificaciones: " + especificacionesTecnicas +
+                ", Uso recomendado: " + usoRecomendado + ", Dimensiones: " + dimensiones;
     }
 }
 
@@ -120,8 +167,10 @@ public class TrabajoEDD {
                     generarHistorial();
                     break;
                 case 9:
-                    System.out.println("Tamaño promedio de un nodo: " + calcularTamanoNodo() + " bytes");
-                    System.out.println("Tamaño promedio de los datos de una herramienta: " + calcularTamanoDato() + " bytes");
+                    System.out.println("\n--- Calcular Tamaños ---");
+                    System.out.println("Tamaño del nodo: " + calcularTamanoNodo() + " bytes");
+                    System.out.println("Tamaño de los datos de una herramienta: " + calcularTamanoDato() + " bytes");
+                    System.out.println("Tamaño de la lista: " + calcularTamanoLista() + " bytes");
                     break;
                 case 10:
                     salir = true;
@@ -150,22 +199,25 @@ public class TrabajoEDD {
 
     private static void precargarProductos() {
         // Crear algunas herramientas
-        Herramienta h1 = new Herramienta("Taladro", 120.50, "eléctrica", "metal", "Bosch", "600W, velocidad variable", "Construcción", "30x20x10 cm");
-        Herramienta h2 = new Herramienta("Martillo", 25.00, "manual", "acero", "Stanley", "Cabeza de acero forjado", "Carpintería", "15x5x3 cm");
-        Herramienta h3 = new Herramienta("Sierra", 75.99, "eléctrica", "plástico", "Makita", "700W, hoja de 20 cm", "Jardinería", "50x30x20 cm");
-    
+        Herramienta h1 = new Herramienta("Taladro", 120.50, "eléctrica", "metal", "Bosch", "600W, velocidad variable",
+                "Construcción", "30x20x10 cm");
+        Herramienta h2 = new Herramienta("Martillo", 25.00, "manual", "acero", "Stanley", "Cabeza de acero forjado",
+                "Carpintería", "15x5x3 cm");
+        Herramienta h3 = new Herramienta("Sierra", 75.99, "eléctrica", "plástico", "Makita", "700W, hoja de 20 cm",
+                "Jardinería", "50x30x20 cm");
+
         // Crear nodos y agregar a la lista
         Nodo nodo1 = new Nodo(h1);
         Nodo nodo2 = new Nodo(h2);
         Nodo nodo3 = new Nodo(h3);
-    
+
         // Establecer la cabeza de la lista
         cabeza = nodo1;
         nodo1.setSiguiente(nodo2);
         nodo2.setSiguiente(nodo3);
-    
+
         System.out.println("Datos pre-cargados en la lista.");
-    }    
+    }
 
     private static void agregarProducto() {
         System.out.println("\n--- Agregar Producto ---");
@@ -187,7 +239,8 @@ public class TrabajoEDD {
         System.out.print("Dimensiones: ");
         String dimensiones = scanner.nextLine();
 
-        Herramienta herramienta = new Herramienta(nombre, precio, tipo, material, marca, especificaciones, usoRecomendado, dimensiones);
+        Herramienta herramienta = new Herramienta(nombre, precio, tipo, material, marca, especificaciones,
+                usoRecomendado, dimensiones);
         Nodo nuevoNodo = new Nodo(herramienta);
 
         if (cabeza == null) { // Si la lista está vacía
@@ -220,7 +273,8 @@ public class TrabajoEDD {
         }
 
         Nodo actual = cabeza;
-        while (actual.getSiguiente() != null && !actual.getSiguiente().getHerramienta().getNombre().equalsIgnoreCase(nombre)) {
+        while (actual.getSiguiente() != null
+                && !actual.getSiguiente().getHerramienta().getNombre().equalsIgnoreCase(nombre)) {
             actual = actual.getSiguiente();
         }
 
@@ -378,57 +432,77 @@ public class TrabajoEDD {
         }
     }
 
-    // Métodos adicionales para calcular tamaños
+    // Método para calcular el tamaño de un nodo
     private static int calcularTamanoNodo() {
+        // Validar que la lista no esté vacía
+        if (cabeza == null) {
+            System.out.println("La lista está vacía, no se puede calcular el tamaño del nodo.");
+            return 0; // Retorna 0 si no hay herramientas
+        }
+
         int tamanoOverHead = 12; // (APROX) Espacio adicional para almacenar un objeto en memoria.
         int tamanoDato = calcularTamanoDato();
-        int tamanoReferencia = 4; // Tamaño de una referencia a un objeto en memoria. (4 bytes en sistemas de 32 bits)
+        int tamanoReferencia = 8; // Tamaño de una referencia en bytes (OS de 64 bits)
 
         return tamanoOverHead + tamanoDato + tamanoReferencia;
     }
 
+    // Método para calcular el tamaño de los datos de una herramienta
     private static int calcularTamanoDato() {
-        // Tamaño estimado de los atributos de tipo String (en caracteres)
-        int tamanoNombre = 0;
-        if (cabeza != null && cabeza.getHerramienta().getNombre() != null) {
-            tamanoNombre = cabeza.getHerramienta().getNombre().length() * Character.BYTES; // Tamaño en bytes de la cadena 'nombre'
+        // Validar que haya herramientas en la lista
+        if (cabeza == null || cabeza.getHerramienta() == null) {
+            System.out.println("No hay herramientas disponibles para calcular el tamaño de los datos.");
+            return 0; // Retorna 0 si no hay herramientas
         }
-    
-        int tamanoTipo = 0;
-        if (cabeza != null && cabeza.getHerramienta().getTipo() != null) {
-            tamanoTipo = cabeza.getHerramienta().getTipo().length() * Character.BYTES;
+
+        int tamanoPrecio = 8; // Tamaño de un double
+        int tamanoCadenas = 0; // Acumulador para las cadenas
+        int tamanoReferencia = 8; // Tamaño de una referencia en bytes (OS de 64 bits)
+        int tamanoOverhead = 12; // Tamaño del overhead de un objeto en bytes
+
+        Herramienta herramienta = cabeza.getHerramienta();
+
+        // Colocar los atributos de tipo String en un array
+        String[] atributos = {
+                herramienta.getNombre(),
+                herramienta.getTipo(),
+                herramienta.getMaterial(),
+                herramienta.getMarca(),
+                herramienta.getEspecificacionesTecnicas(),
+                herramienta.getUsoRecomendado(),
+                herramienta.getDimensiones()
+        };
+
+        // Calcular tamaño de cada String
+        for (String atributo : atributos) {
+            if (atributo != null) {
+                int longitud = atributo.length();
+                // Tamaño total de este String (Overhead + Referencia + Arreglo de caracteres)
+                tamanoCadenas += tamanoOverhead + tamanoReferencia + (longitud * Character.BYTES);
+            }
         }
-    
-        int tamanoMaterial = 0;
-        if (cabeza != null && cabeza.getHerramienta().getMaterial() != null) {
-            tamanoMaterial = cabeza.getHerramienta().getMaterial().length() * Character.BYTES;
+
+        return tamanoCadenas + tamanoPrecio;
+    }
+
+    private static int calcularTamanoLista() {
+        // Validar que la lista no esté vacía
+        if (cabeza == null) {
+            System.out.println("La lista está vacía, no se puede calcular el tamaño de la lista.");
+            return 0; // Retorna 0 si no hay herramientas
         }
-    
-        int tamanoMarca = 0;
-        if (cabeza != null && cabeza.getHerramienta().getMarca() != null) {
-            tamanoMarca = cabeza.getHerramienta().getMarca().length() * Character.BYTES;
+
+        int tamanoOverhead = 12; // Tamaño del overhead de un objeto en bytes
+        int tamanoReferencia = 8; // Tamaño de una referencia en bytes (OS de 64 bits)
+        int tamanoNodo = calcularTamanoNodo();
+        int cantidadNodos = 0;
+
+        Nodo temp = cabeza;
+        while (temp != null) {
+            cantidadNodos++;
+            temp = temp.getSiguiente();
         }
-    
-        int tamanoEspecificacionesTecnicas = 0;
-        if (cabeza != null && cabeza.getHerramienta().getEspecificacionesTecnicas() != null) {
-            tamanoEspecificacionesTecnicas = cabeza.getHerramienta().getEspecificacionesTecnicas().length() * Character.BYTES;
-        }
-    
-        int tamanoUsoRecomendado = 0;
-        if (cabeza != null && cabeza.getHerramienta().getUsoRecomendado() != null) {
-            tamanoUsoRecomendado = cabeza.getHerramienta().getUsoRecomendado().length() * Character.BYTES;
-        }
-    
-        int tamanoDimensiones = 0;
-        if (cabeza != null && cabeza.getHerramienta().getDimensiones() != null) {
-            tamanoDimensiones = cabeza.getHerramienta().getDimensiones().length() * Character.BYTES;
-        }
-    
-        int tamanoPrecio = 8; // El tamaño de un tipo 'double' es 8 bytes
-    
-        // Sumar todos los tamaños
-        return tamanoNombre + tamanoTipo + tamanoMaterial + tamanoMarca +
-               tamanoEspecificacionesTecnicas + tamanoUsoRecomendado +
-               tamanoDimensiones + tamanoPrecio;
+
+        return tamanoOverhead + tamanoReferencia + (tamanoNodo * cantidadNodos);
     }
 }
