@@ -119,6 +119,11 @@ public class TrabajoEDD {
                     generarHistorial();
                     break;
                 case 9:
+                    System.out.print("Tamaño del nodo: " + calcularTamanoNodo() + " bytes\n");
+                    System.out.print("Tamaño de los datos: " + calcularTamanoDato() + " bytes\n");
+                    System.out.print("Tamaño de la lista: " + calcularTamanoLista() + " bytes\n");
+                    break;
+                case 10:
                     salir = true;
                     System.out.println("Gracias por usar el Sistema de Gestión de Herramientas. ¡Hasta luego!");
                     break;
@@ -138,7 +143,8 @@ public class TrabajoEDD {
         System.out.println("6. Registrar tipo de herramienta");
         System.out.println("7. Listar por marca");
         System.out.println("8. Generar historial de herramientas");
-        System.out.println("9. Salir");
+        System.out.println("9. Calcular Tamaños");
+        System.out.println("10. Salir");
         System.out.print("Seleccione una opción: ");
     }
 
