@@ -90,7 +90,18 @@ public class TrabajoEDD {
         boolean salir = false;
         while (!salir) {
             mostrarMenu();
-            int opcion = scanner.nextInt();
+            int opcion = -1;
+            while (opcion < 1 || opcion > 10) {
+                if (scanner.hasNextInt()) {
+                    opcion = scanner.nextInt();
+                    if (opcion < 1 || opcion > 10) {
+                        System.out.println("Opción no válida. Por favor, ingrese un número entre 1 y 10.");
+                    }
+                } else {
+                    System.out.println("Entrada no válida. Por favor, ingrese un número.");
+                    scanner.next(); // Limpiar la entrada no válida
+                }
+            }
             scanner.nextLine();
 
             switch (opcion) {
