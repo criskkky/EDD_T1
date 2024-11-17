@@ -313,67 +313,70 @@ public class TrabajoEDD {
         }
 
         System.out.println("Producto no encontrado.");
-    }
+        }
 
-    private static void consultarUsoRecomendado() {
+        private static void consultarUsoRecomendado() {
         System.out.println("\n--- Consultar Uso Recomendado ---");
-        System.out.print("Ingrese el nombre del producto: ");
-        String nombre = scanner.nextLine();
+        System.out.print("Ingrese el ID del producto: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
         Nodo temp = cabeza;
 
         while (temp != null) {
-            if (temp.getHerramienta().getNombre().equalsIgnoreCase(nombre)) {
-                System.out.println("Uso recomendado: " + temp.getHerramienta().getUsoRecomendado());
-                return;
+            if (temp.getHerramienta().getId() == id) {
+            System.out.println("Uso recomendado: " + temp.getHerramienta().getUsoRecomendado());
+            return;
             }
             temp = temp.getSiguiente();
         }
 
         System.out.println("Producto no encontrado.");
-    }
+        }
 
-    private static void verificarMaterial() {
+        private static void verificarMaterial() {
         System.out.println("\n--- Verificar Material ---");
-        System.out.print("Ingrese el nombre del producto: ");
-        String nombre = scanner.nextLine();
+        System.out.print("Ingrese el ID del producto: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
         Nodo temp = cabeza;
 
         while (temp != null) {
-            if (temp.getHerramienta().getNombre().equalsIgnoreCase(nombre)) {
-                System.out.println("Material: " + temp.getHerramienta().getMaterial());
-                return;
+            if (temp.getHerramienta().getId() == id) {
+            System.out.println("Material: " + temp.getHerramienta().getMaterial());
+            return;
             }
             temp = temp.getSiguiente();
         }
 
         System.out.println("Producto no encontrado.");
-    }
+        }
 
-    private static void registrarTipo() {
+        private static void registrarTipo() {
         System.out.println("\n--- Registrar Tipo de Herramienta ---");
-        System.out.print("Ingrese el nombre del producto: ");
-        String nombre = scanner.nextLine();
+        System.out.print("Ingrese el ID del producto: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
         Nodo temp = cabeza;
 
         while (temp != null) {
-            if (temp.getHerramienta().getNombre().equalsIgnoreCase(nombre)) {
-                System.out.print("Nuevo tipo (eléctrica/manual): ");
-                String tipo = scanner.nextLine();
-                if (tipo.equalsIgnoreCase("eléctrica") || tipo.equalsIgnoreCase("manual")) {
-                    temp.getHerramienta().setTipo(tipo);
-                    System.out.println("Tipo registrado con éxito.");
-                } else {
-                    System.out.println("Tipo no válido. Debe ser 'eléctrica' o 'manual'.");
-                }
-                return;
+            if (temp.getHerramienta().getId() == id) {
+            System.out.print("Nuevo tipo (eléctrica/manual): ");
+            String tipo = scanner.nextLine();
+            if (tipo.equalsIgnoreCase("eléctrica") || tipo.equalsIgnoreCase("manual") || tipo.equalsIgnoreCase("electrica")) {
+                temp.getHerramienta().setTipo(tipo);
+                System.out.println("Tipo registrado con éxito.");
+            } else {
+                System.out.println("Tipo no válido. Debe ser 'eléctrica' o 'manual'.");
+            }
+            return;
             }
             temp = temp.getSiguiente();
         }
 
         System.out.println("Producto no encontrado.");
-    }
+        }
 
-    private static void listarPorMarca() {
+        private static void listarPorMarca() {
         System.out.println("\n--- Listar por Marca ---");
         System.out.print("Ingrese la marca: ");
         String marca = scanner.nextLine();
@@ -464,7 +467,7 @@ public class TrabajoEDD {
     }
 
     private static int calcularTamanoLista() {
-        // Validar que la lista no esté vacía
+
         if (cabeza == null) {
             System.out.println("La lista está vacía, no se puede calcular el tamaño de la lista.");
             return 0;
