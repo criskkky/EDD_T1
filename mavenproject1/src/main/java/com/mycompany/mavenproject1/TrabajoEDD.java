@@ -224,7 +224,7 @@ public class TrabajoEDD {
             actual.setSiguiente(actual.getSiguiente().getSiguiente());
             System.out.println("Producto eliminado con éxito.");
         } else {
-            System.out.println("Producto no encontrado.");
+            System.out.println("Producto no encontrado, compruebe el ID ingresado.");
         }
     }
 
